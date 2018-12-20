@@ -51,8 +51,8 @@ def tokenize_lyrics(text):
     return stems
 
 def topic_modelling(docs):
-    dictionary = corpora.Dictionary(lyric_collection)
-    corpus = [dictionary.doc2bow(text) for text in lyric_collection]
+    dictionary = corpora.Dictionary(docs)
+    corpus = [dictionary.doc2bow(text) for text in docs]
 
     pickle.dump(corpus, open('corpus.pkl', 'wb'))
     dictionary.save('dictionary.gensim')
